@@ -1,6 +1,7 @@
 {
     "name": "dossantoscarlos/apicep",
     "type": "library",
+    "description": "Biblioteca com foco em simplificar acesso as consulta de cep usando a viaCep",
     "require": {
         "phpunit/phpunit": "^10.0",
         "guzzlehttp/guzzle": "^7.0"
