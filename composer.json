@@ -1,0 +1,22 @@
+{
+    "name": "dossantoscarlos/apicep",
+    "type": "library",
+    "require": {
+        "phpunit/phpunit": "^10.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "Cep\\": "src/",
+            "Test\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Carlos Eduardo",
+            "email": "eduardo191949@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
