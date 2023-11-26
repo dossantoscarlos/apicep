@@ -2,7 +2,9 @@
     "name": "dossantoscarlos/apicep",
     "type": "library",
     "description": "Biblioteca com foco em simplificar acesso as consulta de cep usando a viaCep",
+    "minimum-stability": "alpha",
     "require": {
+        "php": "8.0",
         "phpunit/phpunit": "^10.0",
         "guzzlehttp/guzzle": "^7.0"
     },
@@ -18,6 +20,5 @@
             "name": "Carlos Eduardo",
             "email": "eduardo191949@hotmail.com"
         }
-    ],
-    "minimum-stability": "stable"
+    ]
 }
