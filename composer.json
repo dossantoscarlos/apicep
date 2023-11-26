@@ -4,7 +4,7 @@
     "description": "Biblioteca com foco em simplificar acesso as consulta de cep usando a viaCep",
     "minimum-stability": "alpha",
     "require": {
-        "php": "8.0",
+        "php": "^8.0",
         "phpunit/phpunit": "^10.0",
         "guzzlehttp/guzzle": "^7.0"
     },
