@@ -10,40 +10,46 @@ use GuzzleHttp\Client;
 class ViaCep
 {    
     private string $cep; //01001000
+    private string $tipo;
 
-    public function __construct(string $cep) {
+    public function __construct(string $cep, string $tipo) {
         $this->cep = $cep;
+        $this->setTipo($tipo);
     }
 
-    private function viaCep(string $http) 
+    private function setTipo(string $tipo)
+    {
+        $arrTipo = ['json','xml'];
+        $tipo = trim(strtolower($tipo));
+        
+        if (!in_array($tipo, $arrTipo)){
+            throw new Exception("Tipo invalido.");
+        }
+
+        $this->tipo=$tipo;
+    }
+
+    public function viaCep()
     {   
         try { 
+
+            $http = "https://viacep.com.br/ws/{$this->cep}/{$this->tipo}/";
+            
             $client = new Client();
             $response = $client->get($http);    
-           
-            $body = json_encode($response->getBody());
-
-            if($response->getStatusCode() !== 200)  {
+                 
+            if ($response->getStatusCode() !== 200)  {
                throw new Exception('Cep nao encontrado');
             }
 
-            if (strlen(trim($body)) === 0){
+            if ($response->getBody()->getSize() === 0){
                 throw new Exception("Cep nao inexistente");
             }
+
             return $response->getBody();
+        
         } catch(Exception $e) {
             throw new Exception("{$e->getMessage()}");
         }
     }
-
-    public function viaCepJson() 
-    {
-        return $this->viaCep("https://viacep.com.br/ws/{$this->cep}/json/");
-    }
-
-    public function viaCepXML() 
-    {
-        return $this->viaCep("https://viacep.com.br/ws/{$this->cep}/xml/");
-    }
-
 }

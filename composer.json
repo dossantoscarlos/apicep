@@ -6,7 +6,8 @@
     "require": {
         "php": "^8.0",
         "phpunit/phpunit": "^10.0",
-        "guzzlehttp/guzzle": "^7.0"
+        "guzzlehttp/guzzle": "^7.0",
+        "guzzlehttp/psr7": "^2.6"
     },
     "license": "mit",
     "autoload": {
