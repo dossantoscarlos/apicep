@@ -17,8 +17,8 @@ class ViaEndereco
     function __construct(string $uf, string $localidade, string $rua, string $tipo="json")
     {       
         $this->uf = trim(strtoupper($uf));
-        $this->localidade = $localidade;
-        $this->rua = $rua; 
+        $this->localidade = trim(strtolower($localidade));
+        $this->rua = trim(strtolower($rua)); 
         $this->setTipo($tipo);
     }
 
@@ -43,17 +43,17 @@ class ViaEndereco
             $client = new Client();
             $response = $client->get($http);    
            
-            $body = json_encode($response->getBody());
+            $response->getBody();
 
             if($response->getStatusCode() !== 200)  {
                throw new Exception('Endereco não encontrado');
             }
 
-            if (strlen(trim($body)) === 0){
+            if ($response->getBody()->getSize() === 0){
                 throw new Exception("Endereco não inexistente");
             }
             
-            return $body;
+            return $response->getBody();
 
         } catch(Exception $e) {
             throw new Exception("{$e->getMessage()}");

@@ -35,7 +35,7 @@ class ViaCep
 
             $http = "https://viacep.com.br/ws/{$this->cep}/{$this->tipo}/";
             
-            $client = new Client();
+            $client = new Client;
             $response = $client->get($http);    
                  
             if ($response->getStatusCode() !== 200)  {
