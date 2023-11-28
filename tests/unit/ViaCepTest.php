@@ -4,7 +4,7 @@ namespace Test\unit;
 
 use Cep\ViaCep;
 use PHPUnit\Framework\TestCase;
-use SimpleXMLElement;
+
 
 class ViaCepTest extends TestCase 
 {
