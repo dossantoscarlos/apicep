@@ -38,10 +38,6 @@ class ViaCep
             $client = new Client;
             $response = $client->get($http);    
                  
-            if ($response->getStatusCode() !== 200)  {
-               throw new Exception('Cep nao encontrado');
-            }
-
             if ($response->getBody()->getSize() === 0){
                 throw new Exception("Cep nao inexistente");
             }
@@ -49,7 +45,7 @@ class ViaCep
             return $response->getBody();
         
         } catch(Exception $e) {
-            throw new Exception("{$e->getMessage()}");
+            throw new Exception("{$e->getCode()} Not Found");
         }
     }
 }

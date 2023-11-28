@@ -50,7 +50,7 @@ class ViaEndereco
             return $response->getBody();
 
         } catch(Exception $e) {
-            throw new Exception("{$e->getMessage()}");
+            throw new Exception("404 Not Found.");
         }
     }
 

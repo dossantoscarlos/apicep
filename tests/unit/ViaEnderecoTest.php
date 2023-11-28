@@ -12,7 +12,7 @@ class ViaEnderecoTest extends TestCase
     public static function enderecoProvider()
     {
         return [
-            ['rj', 'novaiguaçu', 'doutor%20renato', 'json'],
+            ['rj', 'novaiguaçu', 'doutorrenato', 'json'],
             ['rj', 'nova iguaçu', 'doutor renato', 'xml']
         ];
     }
