@@ -42,17 +42,11 @@ class ViaEndereco
         
             $client = new Client();
             $response = $client->get($http);    
-           
-            $response->getBody();
 
-            if($response->getStatusCode() !== 200)  {
-               throw new Exception('Endereco não encontrado');
+            if ($response->getBody() == '[]' or $response->getBody() == "<xmlcep><enderecos/></xmlcep>") {
+                throw new Exception("Endereco não existe");
             }
 
-            if ($response->getBody()->getSize() === 0){
-                throw new Exception("Endereco não inexistente");
-            }
-            
             return $response->getBody();
 
         } catch(Exception $e) {
